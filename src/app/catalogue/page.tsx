@@ -9,6 +9,8 @@ import {
 } from '@/components/ui/select';
 import { mockTemplates } from '@/lib/mock-data';
 import { TemplateCard } from '@/components/template-card';
+import { Input } from '@/components/ui/input';
+import { Search } from 'lucide-react';
 
 // Note: Metadata should be defined in a server component or at the page level if static.
 // For client components, you'd handle document head changes differently (e.g., with useEffect).
@@ -35,10 +37,15 @@ export default function CataloguePage() {
 
       <div className="sticky top-16 z-40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-4 mb-8 border-b">
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <h2 className="text-lg font-headline font-semibold hidden sm:block">
-            Filtres
-          </h2>
-          <div className="grid grid-cols-2 sm:flex gap-4 w-full sm:w-auto">
+          <div className="relative w-full sm:w-auto sm:flex-grow">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input 
+              type="search" 
+              placeholder="Rechercher un modèle..." 
+              className="pl-10 w-full"
+            />
+          </div>
+          <div className="flex gap-4 w-full sm:w-auto">
             <div className="w-full">
               <label htmlFor="category-select" className="sr-only">
                 Catégorie
