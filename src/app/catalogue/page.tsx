@@ -10,17 +10,9 @@ import {
 import { mockTemplates } from '@/lib/mock-data';
 import { TemplateCard } from '@/components/template-card';
 import { Input } from '@/components/ui/input';
-import { Search } from 'lucide-react';
-
-// Note: Metadata should be defined in a server component or at the page level if static.
-// For client components, you'd handle document head changes differently (e.g., with useEffect).
-// Since this is a simple app, we can move metadata to a generateMetadata export.
-/*
-export const metadata = {
-  title: 'Catalogue',
-  description: 'Parcourez tous nos modèles Excel professionnels.',
-};
-*/
+import { Search, Pencil } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function CataloguePage() {
   return (
@@ -80,6 +72,12 @@ export default function CataloguePage() {
                 </SelectContent>
               </Select>
             </div>
+             <Button asChild className="w-full sm:w-auto flex-shrink-0">
+                <Link href="/contact">
+                  <Pencil className="mr-2 h-4 w-4" />
+                  Modèle sur mesure
+                </Link>
+              </Button>
           </div>
         </div>
       </div>
