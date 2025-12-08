@@ -28,7 +28,7 @@ export default function CataloguePage() {
       </div>
 
       <div className="sticky top-16 z-40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-4 mb-8 border-b">
-        <div className="flex flex-col sm:flex-row items-center gap-4">
+        <div className="container flex flex-col sm:flex-row items-center gap-4">
           <div className="relative w-full sm:w-auto sm:flex-grow">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input 
