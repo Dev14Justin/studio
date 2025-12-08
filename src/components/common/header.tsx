@@ -22,6 +22,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 const navLinks = [
   { href: '/catalogue', label: 'Catalogue' },
+  { href: '/authors', label: 'Nos Auteurs' },
   { href: '/pricing', label: 'Tarifs' },
   { href: '/contact', label: 'Contact' },
 ];
