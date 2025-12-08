@@ -1,5 +1,13 @@
 import type { ImagePlaceholder } from './placeholder-images';
 
+export type Author = {
+  id: string;
+  name: string;
+  slug: string;
+  title: string;
+  avatarUrl: string;
+};
+
 export type Template = {
   id: string;
   title: string;
@@ -14,11 +22,7 @@ export type Template = {
   demoUrl: string;
   prerequisites: string[];
   tags: string[];
-  author: {
-    name: string;
-    title: string;
-    avatarUrl: string;
-  };
+  author: Author;
   reviews: {
     rating: number;
     count: number;

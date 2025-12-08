@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
+import Link from 'next/link';
 
 type ProductPageProps = {
   params: {
@@ -75,16 +76,18 @@ export default function ProductPage({ params }: ProductPageProps) {
             
             <p className="text-muted-foreground">{template.description}</p>
             
-            <div className="flex items-center gap-4 border-t pt-4">
-                <Avatar>
-                    <AvatarImage src={template.author.avatarUrl} alt={template.author.name} />
-                    <AvatarFallback>{template.author.name.charAt(0)}</AvatarFallback>
-                </Avatar>
-                <div>
-                    <p className="font-semibold">{template.author.name}</p>
-                    <p className="text-sm text-muted-foreground">{template.author.title}</p>
-                </div>
-            </div>
+            <Link href={`/authors/${template.author.slug}`} className="block group">
+              <div className="flex items-center gap-4 border-t pt-4 group-hover:bg-muted p-2 rounded-lg transition-colors">
+                  <Avatar>
+                      <AvatarImage src={template.author.avatarUrl} alt={template.author.name} />
+                      <AvatarFallback>{template.author.name.charAt(0)}</AvatarFallback>
+                  </Avatar>
+                  <div>
+                      <p className="font-semibold group-hover:text-primary">{template.author.name}</p>
+                      <p className="text-sm text-muted-foreground">{template.author.title}</p>
+                  </div>
+              </div>
+            </Link>
 
             <Card>
                 <CardContent className="p-6">

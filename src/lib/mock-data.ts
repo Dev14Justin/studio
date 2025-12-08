@@ -1,4 +1,4 @@
-import type { Template } from '@/lib/types';
+import type { Template, Author } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const findImage = (id: string) => {
@@ -8,6 +8,31 @@ const findImage = (id: string) => {
   }
   return image;
 };
+
+export const mockAuthors: Author[] = [
+  {
+    id: 'author-1',
+    name: 'Alice Martin',
+    slug: 'alice-martin',
+    title: 'Data Analyst',
+    avatarUrl: findImage('avatar-2').imageUrl,
+  },
+  {
+    id: 'author-2',
+    name: 'Jean Dupont',
+    slug: 'jean-dupont',
+    title: 'Consultant Logistique',
+    avatarUrl: findImage('avatar-1').imageUrl,
+  },
+    {
+    id: 'author-3',
+    name: 'Chris Leblanc',
+    slug: 'chris-leblanc',
+    title: 'Project Manager',
+    avatarUrl: findImage('avatar-3').imageUrl,
+  },
+];
+
 
 export const mockTemplates: Template[] = [
   {
@@ -24,11 +49,7 @@ export const mockTemplates: Template[] = [
     demoUrl: 'https://youtube.com/plan_budget_annuel',
     prerequisites: ['Excel 2019+', 'Connaissances de base en finance'],
     tags: ['budget', 'finance', 'PME'],
-    author: {
-      name: 'Alice Martin',
-      title: 'Data Analyst',
-      avatarUrl: findImage('avatar-2').imageUrl,
-    },
+    author: mockAuthors.find(a => a.id === 'author-1')!,
     reviews: {
       rating: 4.8,
       count: 72,
@@ -49,11 +70,7 @@ export const mockTemplates: Template[] = [
     demoUrl: 'https://youtube.com/gestion_stock',
     prerequisites: ['Excel 2021+', 'Macros activées'],
     tags: ['stock', 'inventaire', 'e-commerce'],
-    author: {
-      name: 'Jean Dupont',
-      title: 'Consultant Logistique',
-      avatarUrl: findImage('avatar-1').imageUrl,
-    },
+    author: mockAuthors.find(a => a.id === 'author-2')!,
     reviews: {
       rating: 4.9,
       count: 115,
@@ -74,11 +91,7 @@ export const mockTemplates: Template[] = [
     demoUrl: 'https://youtube.com/planning_rh',
     prerequisites: ['Excel 2016+'],
     tags: ['rh', 'planning', 'congés', 'équipe'],
-    author: {
-      name: 'Alice Martin',
-      title: 'Data Analyst',
-      avatarUrl: findImage('avatar-2').imageUrl,
-    },
+    author: mockAuthors.find(a => a.id === 'author-1')!,
     reviews: {
       rating: 4.7,
       count: 58,
@@ -99,11 +112,7 @@ export const mockTemplates: Template[] = [
     demoUrl: 'https://youtube.com/gantt_chart',
     prerequisites: ['Excel 2019+'],
     tags: ['gantt', 'projet', 'planification', 'tâches'],
-    author: {
-      name: 'Chris Leblanc',
-      title: 'Project Manager',
-      avatarUrl: findImage('avatar-3').imageUrl,
-    },
+    author: mockAuthors.find(a => a.id === 'author-3')!,
     reviews: {
       rating: 4.9,
       count: 98,
