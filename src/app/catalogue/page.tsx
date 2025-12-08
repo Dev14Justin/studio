@@ -1,37 +1,51 @@
+
+'use client';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { mockTemplates } from "@/lib/mock-data"
-import { TemplateCard } from "@/components/template-card"
+} from '@/components/ui/select';
+import { mockTemplates } from '@/lib/mock-data';
+import { TemplateCard } from '@/components/template-card';
 
+// Note: Metadata should be defined in a server component or at the page level if static.
+// For client components, you'd handle document head changes differently (e.g., with useEffect).
+// Since this is a simple app, we can move metadata to a generateMetadata export.
+/*
 export const metadata = {
   title: 'Catalogue',
   description: 'Parcourez tous nos modèles Excel professionnels.',
 };
+*/
 
 export default function CataloguePage() {
   return (
     <div className="container py-12">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold font-headline">Notre Catalogue de Modèles</h1>
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold font-headline">
+          Notre Catalogue de Modèles
+        </h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Trouvez l'outil parfait pour optimiser votre travail et atteindre vos objectifs.
+          Trouvez l'outil parfait pour optimiser votre travail et atteindre vos
+          objectifs.
         </p>
       </div>
 
-      <div className="mt-12 flex flex-col md:flex-row gap-8">
-        <aside className="w-full md:w-1/4 lg:w-1/5">
-          <div className="sticky top-24 space-y-6">
-            <h2 className="text-xl font-headline font-semibold">Filtres</h2>
-            <div>
-              <label className="text-sm font-medium">Catégorie</label>
+      <div className="sticky top-16 z-40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-4 mb-8 border-b">
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <h2 className="text-lg font-headline font-semibold hidden sm:block">
+            Filtres
+          </h2>
+          <div className="grid grid-cols-2 sm:flex gap-4 w-full sm:w-auto">
+            <div className="w-full">
+              <label htmlFor="category-select" className="sr-only">
+                Catégorie
+              </label>
               <Select>
-                <SelectTrigger className="w-full mt-2">
-                  <SelectValue placeholder="Toutes" />
+                <SelectTrigger id="category-select" className="w-full">
+                  <SelectValue placeholder="Catégorie" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">Toutes</SelectItem>
@@ -43,11 +57,13 @@ export default function CataloguePage() {
                 </SelectContent>
               </Select>
             </div>
-            <div>
-              <label className="text-sm font-medium">Trier par</label>
+            <div className="w-full">
+              <label htmlFor="sort-select" className="sr-only">
+                Trier par
+              </label>
               <Select>
-                <SelectTrigger className="w-full mt-2">
-                  <SelectValue placeholder="Popularité" />
+                <SelectTrigger id="sort-select" className="w-full">
+                  <SelectValue placeholder="Trier par" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="popularity">Popularité</SelectItem>
@@ -58,19 +74,22 @@ export default function CataloguePage() {
               </Select>
             </div>
           </div>
-        </aside>
-
-        <main className="w-full md:w-3/4 lg:w-4/5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
-            {mockTemplates.map((template) => (
-              <TemplateCard key={template.id} template={template} />
-            ))}
-             {mockTemplates.map((template) => (
-              <TemplateCard key={template.id + '-dup'} template={{...template, id: template.id + '-dup'}} />
-            ))}
-          </div>
-        </main>
+        </div>
       </div>
+
+      <main>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {mockTemplates.map((template) => (
+            <TemplateCard key={template.id} template={template} />
+          ))}
+          {mockTemplates.map((template) => (
+            <TemplateCard
+              key={template.id + '-dup'}
+              template={{ ...template, id: template.id + '-dup' }}
+            />
+          ))}
+        </div>
+      </main>
     </div>
-  )
+  );
 }
