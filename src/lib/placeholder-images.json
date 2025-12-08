@@ -1,3 +1,64 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-1",
+      "description": "Hero image showing an office setting with spreadsheets.",
+      "imageUrl": "https://images.unsplash.com/photo-1762341110466-7d493b93ab4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxvZmZpY2UlMjBzcHJlYWRzaGVldHxlbnwwfHx8fDE3NjUxNTg1Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "office spreadsheet"
+    },
+    {
+      "id": "template-1",
+      "description": "A financial budget template.",
+      "imageUrl": "https://images.unsplash.com/photo-1759536430218-7053ccf40fe9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZGFzaGJvYXJkJTIwY2hhcnR8ZW58MHx8fHwxNzY1MTU4NTM4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dashboard chart"
+    },
+    {
+      "id": "template-2",
+      "description": "An invoice template.",
+      "imageUrl": "https://images.unsplash.com/photo-1586957960772-3e526c5e7cbd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxpbnZvaWNlJTIwZG9jdW1lbnR8ZW58MHx8fHwxNzY1MDYzMDMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "invoice document"
+    },
+    {
+      "id": "template-3",
+      "description": "A project management Gantt chart template.",
+      "imageUrl": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxnYW50dCUyMGNoYXJ0fGVufDB8fHx8MTc2NTEzNDIzNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gantt chart"
+    },
+    {
+      "id": "template-4",
+      "description": "An inventory management template.",
+      "imageUrl": "https://images.unsplash.com/photo-1654931799020-ce7cf3f4a2c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxpbnZlbnRvcnklMjBsaXN0fGVufDB8fHx8MTc2NTE1ODUzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "inventory list"
+    },
+    {
+      "id": "template-5",
+      "description": "HR planning template.",
+      "imageUrl": "https://images.unsplash.com/photo-1579823730815-0291253396b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWFtJTIwc2NoZWR1bGV8ZW58MHx8fHwxNzY1MTU4NTM4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "team schedule"
+    },
+    {
+      "id": "template-6",
+      "description": "Personal finance tracker.",
+      "imageUrl": "https://images.unsplash.com/photo-1652466439798-fe090b23f18e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YnVkZ2V0JTIwcGxhbm5lcnxlbnwwfHx8fDE3NjUxNTg1Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "budget planner"
+    },
+    {
+      "id": "avatar-1",
+      "description": "Avatar for a male user.",
+      "imageUrl": "https://images.unsplash.com/photo-1531123414780-f74242c2b052?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGVyc29uJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY1MTUwNDAzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "avatar-2",
+      "description": "Avatar for a female user.",
+      "imageUrl": "https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2NTEzNTg5Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "avatar-3",
+      "description": "Avatar for a user.",
+      "imageUrl": "https://images.unsplash.com/photo-1629425733761-caae3b5f2e50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NjUxMzQzOTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional headshot"
+    }
+  ]
 }
