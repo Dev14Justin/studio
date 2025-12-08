@@ -12,8 +12,32 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Logo } from '@/components/common/logo';
+import { useAuth } from '@/lib/firebase/auth';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
 
 export default function LoginPage() {
+  const { signIn, signInWithGoogle } = useAuth();
+  const router = useRouter();
+  const { toast } = useToast();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await signIn(email, password);
+      router.push('/account');
+    } catch (error: any) {
+      toast({
+        title: 'Erreur de connexion',
+        description: error.message,
+        variant: 'destructive',
+      });
+    }
+  };
+
   return (
     <Card className="mx-auto max-w-sm w-full">
       <CardHeader>
@@ -24,7 +48,7 @@ export default function LoginPage() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="grid gap-4">
+        <form onSubmit={handleLogin} className="grid gap-4">
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
             <Input
@@ -32,6 +56,8 @@ export default function LoginPage() {
               type="email"
               placeholder="m@exemple.com"
               required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="grid gap-2">
@@ -44,15 +70,21 @@ export default function LoginPage() {
                 Mot de passe oublié?
               </Link>
             </div>
-            <Input id="password" type="password" required />
+            <Input
+              id="password"
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
           <Button type="submit" className="w-full">
             Se connecter
           </Button>
-          <Button variant="outline" className="w-full">
+          <Button variant="outline" className="w-full" onClick={signInWithGoogle} type="button">
             Se connecter avec Google
           </Button>
-        </div>
+        </form>
         <div className="mt-4 text-center text-sm">
           Vous n'avez pas de compte?{" "}
           <Link href="/register" className="underline">
