@@ -16,7 +16,7 @@ import {
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 import { Logo } from './logo';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
@@ -105,6 +105,7 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
+              <SheetTitle className="sr-only">Menu principal</SheetTitle>
               <nav className="grid gap-6 text-lg font-medium mt-10">
                 <Logo />
                 {renderNavLinks(true)}
