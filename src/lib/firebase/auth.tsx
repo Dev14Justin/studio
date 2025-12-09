@@ -31,16 +31,13 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Lazily initialize Firebase
-let app: FirebaseApp;
-let auth: Auth;
-
-if (typeof window !== 'undefined' && !getApps().length) {
-  app = initializeApp(firebaseConfig);
-  auth = getAuth(app);
-} else if (typeof window !== 'undefined') {
-  app = getApp();
-  auth = getAuth(app);
+// Lazy initialization for Firebase
+function getClientAuth() {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+  const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+  return getAuth(app);
 }
 
 
@@ -61,6 +58,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
 
   useEffect(() => {
+    const auth = getClientAuth();
     if (auth) {
       const unsubscribe = onAuthStateChanged(auth, (user) => {
         setUser(user);
@@ -73,6 +71,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signInWithGoogle = async () => {
+    const auth = getClientAuth();
     if (!auth) return;
     const provider = new GoogleAuthProvider();
     try {
@@ -84,16 +83,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signUp = async (email:string, password:string):Promise<any> => {
-    if (!auth) return;
+    const auth = getClientAuth();
+    if (!auth) return Promise.reject(new Error("Firebase not initialized"));
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
   const signIn = async (email:string, password:string):Promise<any> => {
-    if (!auth) return;
+    const auth = getClientAuth();
+    if (!auth) return Promise.reject(new Error("Firebase not initialized"));
     return signInWithEmailAndPassword(auth, email, password)
   }
 
   const signOut = async () => {
+    const auth = getClientAuth();
     if (!auth) return;
     try {
       await firebaseSignOut(auth);
